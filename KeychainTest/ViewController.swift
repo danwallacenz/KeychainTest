@@ -16,7 +16,7 @@ class ViewController: UIViewController {
             do {
                 // Should be the secret invalidated when passcode is removed? If not then use `.WhenUnlocked`
                 try keychain
-                    .accessibility(.whenPasscodeSetThisDeviceOnly, authenticationPolicy: .userPresence)
+                    .accessibility(Accessibility.whenPasscodeSetThisDeviceOnly, authenticationPolicy: [.touchIDCurrentSet])
                     .set("01234567-89ab-cdef-0123-456789abcdef", key: "kishikawakatsumi")
             } catch let error {
                 // Error handling if needed...
